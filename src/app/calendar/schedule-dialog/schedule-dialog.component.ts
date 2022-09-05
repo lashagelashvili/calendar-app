@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CalendarEvent } from 'src/app/models/calendar';
@@ -9,7 +9,7 @@ import { CalendarStateService } from 'src/app/services/calendar-state.service';
   templateUrl: './schedule-dialog.component.html',
   styleUrls: ['./schedule-dialog.component.scss'],
 })
-export class ScheduleDialogComponent implements OnInit {
+export class ScheduleDialogComponent {
   scheduleForm = new FormGroup({
     title: new FormControl('asd', {
       nonNullable: true,
@@ -33,8 +33,6 @@ export class ScheduleDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<ScheduleDialogComponent>,
     private calendarService: CalendarStateService
   ) {}
-
-  ngOnInit(): void {}
 
   onSave() {
     const event: CalendarEvent = {
